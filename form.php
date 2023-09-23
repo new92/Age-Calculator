@@ -16,8 +16,10 @@
     </form></center>
     <?php
     } else {
-        $date = explode('/', $_POST['date']);
-        echo 'You are: ' . ($date[2] - getdate()['year']) . ' years old.';
+        $date = (string) $_POST['date'];
+        $date = explode('-', $date);
+        $yo = getdate()['year'] - $date[0];
+        echo '<center>You are: ' . $yo . ' years old</center>';
     }
     ?>
 </body>
